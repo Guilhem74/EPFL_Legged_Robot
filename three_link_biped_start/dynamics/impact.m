@@ -8,6 +8,8 @@ q_p(1) = q_m(2);
 q_p(2) = q_m(1);
 q_p(3) = q_m(3);
 
+dq_m=[dq_m(1) dq_m(2) dq_m(3)]; % Accept Column or row vector and will be able to use it either case.
+
 A_m = eval_A_m(q_m);
 A_p = eval_A_p(q_p);
 
