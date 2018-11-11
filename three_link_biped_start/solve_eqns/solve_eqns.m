@@ -9,11 +9,11 @@
 function sln = solve_eqns(q0, dq0, num_steps)
 
 % options = ...
+t0 = 0;
 h = 0.001; % time step
 tmax = 2; % max time that we allow for a single step
-tspan = % from 0 to tmax with time step h
+tspan = t0:h:tmax;% from 0 to tmax with time step h
 y0 = [q0; dq0];
-t0 = 0;
 
 % we define the solution as a structure to simplify the post-analyses and
 % animation, here we intialize it to null. 
@@ -22,13 +22,14 @@ sln.Y = {};
 sln.TE = {};
 sln.YE = {};
 
+options = odeset('RelTol',1e-5,'events',@event_func);
 
 for i = 1:num_steps
-    [T, Y, TE, YE] = % use ode45 to solve the equations of motion (eqns.m)
-   % sln.T{i} = 
-   % sln.Y{i} = 
-   % sln.TE{i} = 
-   % sln.YE{i} = 
+    [T, Y, TE, YE] = ode45(@eqns,tspan,y0,options);
+    sln.T{i} = T;
+    sln.Y{i} = Y;
+    sln.TE{i} = TE;
+    sln.YE{i} = YE;
     if T(end) == tmax
         break
     end
