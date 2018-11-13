@@ -16,7 +16,7 @@ tic();
 for j = 1:num_steps
     Y = (sln.Y{j});
     [N, ~] = size(Y);
-    for i = 1:skip:N % what does skip do? --> It divides the refreshing rate by 6
+    for i = 1:skip:N % what does skip do? --> It divides the refreshing rate by 5
         q = Y(i,1:3);
         pause(0.002);  % pause for 2 mili-seconds
         visualize(q,r0);
@@ -34,7 +34,7 @@ t_anim = toc();
 % the time it takes for MATLAB to animate the simulations (get it from
 % t_anim). How does 'skip' effect this value? what does a real time factor
 % of 1 mean?
-real_time_factor = sln.T{end}/t_anim;
+real_time_factor = sum(cell2mat( sln.TE))/t_anim;
 fprintf('Real time factor: ');
-%disp(real_time_factor);
+disp(real_time_factor);
 end

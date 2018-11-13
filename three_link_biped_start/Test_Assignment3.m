@@ -1,1 +1,1 @@
-animate(solve_eqns([pi/6; -pi/6; 0],[0;0;8],5));
+animate(solve_eqns([pi/6; -pi/3; 0],[0;0;8],5));
