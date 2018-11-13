@@ -29,15 +29,18 @@ for i = 1:num_steps
     sln.T{i} = T;
     sln.Y{i} = Y;
     sln.TE{i} = TE;
-    sln.YE{i} = YE;
-    if T(end) == tmax
+    sln.YE{i} = YE;%Last Y, at the moment of the event
+    if T(end) >= tmax
         break
     end
     
     % Impact map
-    
+    qm=[YE(1);YE(2);YE(3)];
+    dqm =[YE(4);YE(5);YE(6)];
+    [qp,dqp]=impact(qm,dqm);
+    y0 = [qp;dqp];
     t0 = T(end);
-    
+ disp(2);   
 end
 end
 

@@ -14,17 +14,18 @@ num_steps = length(sln.TE);% total number of steps the robot has taken (find thi
 r0 = [0; 0];
 tic();
 for j = 1:num_steps
-    Y = table2array(sln.Y);
+    Y = (sln.Y{j});
     [N, ~] = size(Y);
     for i = 1:skip:N % what does skip do? --> It divides the refreshing rate by 6
-        q = Y(j,1:3);
+        q = Y(i,1:3);
         pause(0.002);  % pause for 2 mili-seconds
         visualize(q,r0);
         
         hold off
     end
     %update r0
-    r0 = r0 + [0; l1*sin(q(1)) + l2*sin(q(2))];
+    [r_swf , z_swf, ~, dz_swf] = kin_swf(Y(i,1:3), Y(i,4:6));
+    r0 = r0 + [r_swf;0 ];
     
 end
 t_anim = toc();
