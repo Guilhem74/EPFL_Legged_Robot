@@ -1,3 +1,9 @@
+
+
+
+
+
+
 # Assignment 2, Continued (Week 6)
 
 - Place the scripts ```eval_A_m.m, eval_A_p.m, eval_energy.m``` into your ```dynamics``` folder. 
