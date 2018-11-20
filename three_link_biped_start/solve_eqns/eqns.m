@@ -1,22 +1,26 @@
-function dy = eqns(t, y)
+function dy = eqns(t, y, y0, step_number)
 % n this is the dimension of the ODE, note that n is 2*DOF, why? 
 % y1 = q1, y2 = q2, y3 = q3, y4 = dq1, y5 = dq2, y6 = dq3
-%set_path();
+% y0 is the states right after impact
 
-u = control(y(1:3), y(4:6)); % for the moment we set the control outputs to zero
+q = [y(1); y(2); y(3)];
+dq = [y(4); y(5); y(6)];
 
-DOF = 3;
-n = 2*DOF;   
+q0 = [y0(1); y0(2); y0(3)];
+dq0 = [y0(4); y0(5); y0(6)];
+
+M = eval_M(q);
+C = eval_C(q, dq);
+G = eval_G(q);
+B = eval_B();
+
+u = control(t, q, dq, q0, dq0, step_number); 
+
+n = 6;   
 dy = zeros(n, 1);
-
-M = eval_M(y(1:3));
-C = eval_C(y(1:3),y(4:6));
-G = eval_G(y(1:3));
-B = eval_B;
-
-dy(1:3) = y(4:6);
-dy(4:6) = M\(B*u - C*y(4:6) - G);
-
-% write down the equations for dy:
+dy(1) = y(4);
+dy(2) = y(5);
+dy(3) = y(6);
+dy(4:6) = M \ (-C*dq - G + B*u);
 
 end

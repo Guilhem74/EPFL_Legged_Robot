@@ -4,7 +4,6 @@
 % 
 function [q_p, dq_p] = impact(q_m, dq_m)
 
-
 q_p(1, 1) = q_m(2);
 q_p(2, 1) = q_m(1);
 q_p(3, 1) = q_m(3);

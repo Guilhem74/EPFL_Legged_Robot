@@ -1,1 +1,2 @@
-addpath('./kinematics', './control', './dynamics', './set_parameters/', './solve_eqns/', './visualize')
+addpath('./kinematics', './control', './dynamics', './set_parameters/', ...
+    './solve_eqns/', './visualize', './analysis')

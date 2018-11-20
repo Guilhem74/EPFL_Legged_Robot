@@ -47,9 +47,9 @@ function visualize(q, r0)
     plot([x_h, x_t], [z_h, z_t], 'linewidth', lw); 
     plot([x_h, x_swf], [z_h, z_swf], 'linewidth', lw);
     % plot a line for "ground"
-    plot([-1, 1], [0, 0], 'color', 'black');
+    plot([-1 + x_h, 1 + x_h], [0, 0], 'color', 'black');
     axis 'square'
-    xlim([-1, 1]);
+    xlim([-1 + x_h, 1 + x_h]);
     ylim([-0.8, 1.2]);
     % point masses
     mz = 40;
