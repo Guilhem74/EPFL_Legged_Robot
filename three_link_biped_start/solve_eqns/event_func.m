@@ -10,6 +10,7 @@ dq = y(4:6);
 [~, z_swf, ~, ~] = kin_swf(q, dq);
 % 0.001 * cos(q(1)) is added to allow a virtual ground clearance
 value = z_swf + 0.001 * cos(q(1)) + 0.0001;
+%value=1;
 isterminal = 1;
 direction = -1;
 
