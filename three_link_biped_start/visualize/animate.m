@@ -7,10 +7,11 @@ function animate(sln)
 
 figure();
 skip = 5;
-tic();
+
 num_steps = length(sln.T);
 r0 = [0; 0];
 for j = 1:num_steps
+    tic();
     Y = sln.Y{j};
     [N, ~] = size(Y);
     for i = 1:skip:N
@@ -21,6 +22,9 @@ for j = 1:num_steps
     end
     [x0, ~, ~, ~] = kin_swf(q);
     r0 = r0 + [x0; 0];
+    if j>1
+        x0/(sln.TE{j}-sln.TE{j-1})
+    end;
 end
 t_anim = toc();
 real_time_factor = sln.T{end}(end) / t_anim;

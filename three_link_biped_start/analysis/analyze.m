@@ -3,11 +3,15 @@ function sln = analyse(sln)
     Y = sln.Y{1};
     T = sln.T{1};
     [N, ~] = size(Y);
-    t=T(:,1)
+    t=T(:,1);
       q = Y(:, 1:3);
-      q1=q(:,1)
-    q2=q(:,2)
-    q2=q(:,3)
+      q1=q(:,1);
+    q2=q(:,2);
+    q2=q(:,3);
+    dq = Y(:, 4:6);
+      dq1=q(:,1);
+    dq2=q(:,2);
+    dq2=q(:,3);
     %figure(2);
     %hold on
     %plot(t,q1)

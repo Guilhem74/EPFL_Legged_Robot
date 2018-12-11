@@ -32,6 +32,9 @@ for i = 1:num_steps
     if T(end) == tmax
         break
     end
+    if sum(YE) == 0
+        break
+    end
     
     % Impact map
     q_m = YE(1:3)';
