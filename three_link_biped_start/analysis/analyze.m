@@ -28,13 +28,15 @@ function sln = analyse(sln)
     dh_x_plot=0;
     u1_plot=0;
     u2_plot=0;
+    displacement_plot=0;
+    Step_Axis_Time=0;
     time_sample=0;
     time_step=0;
     step_counter=0;
     %%To analyse a specific step
     u1_specific_step=0;
     u2_specific_step=0;
-    step_specific=41;
+    step_specific=41;%SETUP HERE
     time_sample_specific_step=0;
     %%
     
@@ -51,6 +53,7 @@ function sln = analyse(sln)
         [x_h_end, ~, ~,~] = kin_hip(q_end, dq_end);
         
         x_move=x_h_end-x_h_begin;
+        
         skip=1;
         [N, ~] = size(Y);
         for j = 1:skip:N
@@ -77,6 +80,9 @@ function sln = analyse(sln)
         else
                 speed_plot=[speed_plot 0];
         end;
+        displacement_plot=[displacement_plot x_move];
+        Step_Axis_Time=[Step_Axis_Time i];
+        
     end
         figure(3);
         hold on;
@@ -113,7 +119,7 @@ function sln = analyse(sln)
         plot(time_sample,step_counter);
         legend(' U2','Step Counter'); 
         title('Torque of u2');
- %%¨Plot at the specific step
+ %%¨Plot torque at the specific step
         figure(5);
         subplot(1,2,1)
         hold on;
@@ -125,5 +131,17 @@ function sln = analyse(sln)
         plot( time_sample_specific_step,u2_specific_step);
         legend('U2'); 
         title(['Torque of u2 at the specific step ' num2str(step_specific)]);
+%%Plot Displacement at each step
+        figure(6);
+        subplot(1,2,1);
+        hold on;
+        plot( Step_Axis_Time,displacement_plot);
+        legend(' Displacement for every step'); 
+        title(['Displacement of the hip at each step ']);
+        subplot(1,2,2);
+        hold on;
+        plot( time_step,displacement_plot);
+        legend(' Displacement for every step over time'); 
+        title(['Displacement of the hip over time']);
      
 end
