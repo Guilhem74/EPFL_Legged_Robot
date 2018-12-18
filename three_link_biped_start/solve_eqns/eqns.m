@@ -16,8 +16,7 @@ B = eval_B();
 global u_var
 u = control(t, q, dq, q0, dq0, step_number); % for the moment we set the control outputs to zero
 u_ext = perturbation(q, step_number); % perturbation torque due to the external force at hip
-u_var=[u_var u]; 
-setGlobalx(u_var);
+
 
 n = 6;   
 dy = zeros(n, 1);
