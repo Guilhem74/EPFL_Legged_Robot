@@ -31,8 +31,8 @@ Q = M\(C*dq - G);
 %u1_1 = Kp1*(q3 - head_angle*(q2+step_angle)/(2*step_angle)) + Kd1*(dq3-head_angle*dq2/(2*step_angle));
 %u1_1 = Kp1*(q3) + Kd1*dq3;
 
-u1_1 = 1/(P(3)-P(1))*(-Kp1*(q3-q1) - Kd1*(dq3-dq1) + (Q(3)-Q(1)));
-u1_2 = -Kp1_2*(speed-dq_h);
+    u1_1 = 1/(P(3)-P(1))*(-Kp1*(q3-q1) - Kd1*(dq3-dq1) + (Q(3)-Q(1)));
+u1_2 = Kp1_2*(dq_h-speed);
 %u1_3 = Kp1_3*exp(-q2*1e1)/exp(step_angle*1e1);
 
 u1 = u1_1 + u1_2;
