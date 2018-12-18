@@ -32,9 +32,8 @@ function sln = analyse(sln)
     time_step=0;
     step_counter=0;
     %%To analyse a specific step
-    u1_specific_step=0;
-    u2_specific_step=0;
-    step_specific=41;
+    u_specific_step=0;
+    step_specific=40;
     time_sample_specific_step=0;
     %%
     
@@ -64,14 +63,13 @@ function sln = analyse(sln)
                 u = control(0, q_j', dq_j', 0, 0, 0);%Only q and dq are used in the control function
                 if i==step_specific
                     
-                    u1_specific_step=[u1_specific_step u(1)];
-                    u2_specific_step=[u2_specific_step u(2)];
-                    time_sample_specific_step=[time_sample_specific_step T(j)];
+                    u_specific_step=[u_specific_step ];
+                    time_sample_specific_step=[time_sample_specific_step T(j)]
                 end
                 u1_plot=[u1_plot u(1)];
                 u2_plot=[u2_plot u(2)];
         end
-        time_step=[time_step T(j)];
+        time_step=[time_step T(j)]
         if i>1
                 speed_plot=[speed_plot x_move/(sln.TE{i}-sln.TE{i-1})];
         else
@@ -93,9 +91,8 @@ function sln = analyse(sln)
         yyaxis left
         plot(time_sample,u1_plot);
         for i=1:size(time_step,2)
-            line([time_step(i) time_step(i)], [-30 30],'Color','red','LineStyle','--'); %Showing the steps
+            line([time_step(i) time_step(i)], [-30 30],'Color','red','LineStyle','--'); %Showing the step
         end;
-        axis([0 max(time_sample) -40 40 ]);
         yyaxis right;
         plot(time_sample,step_counter);
         legend(' U1','Step Counter'); 
@@ -105,25 +102,25 @@ function sln = analyse(sln)
         yyaxis left
         plot(time_sample,u2_plot);
         for i=1:size(time_step,2)
-            line([time_step(i) time_step(i)], [-30 30],'Color','red','LineStyle','--'); %Showing the steps
+            line([time_step(i) time_step(i)], [-30 30],'Color','red','LineStyle','--'); %Showing the step
         end;
-        
-        axis([0 max(time_sample) -40 40 ]);
         yyaxis right;
         plot(time_sample,step_counter);
         legend(' U2','Step Counter'); 
         title('Torque of u2');
  %%¨Plot at the specific step
-        figure(5);
+        figure(4);
         subplot(1,2,1)
         hold on;
-        plot( time_sample_specific_step,u1_specific_step);
+        yyaxis left
+        plot( time_sample_specific_step,u_specific_step(1,:));
         legend(' U1'); 
-        title(['Torque of u1 at the specific step ',num2str(step_specific)]);
+        title('Torque of u1 at the specific step %d',step_specific);
         subplot(1,2,2)
         hold on;
-        plot( time_sample_specific_step,u2_specific_step);
+        yyaxis left
+        plot( time_sample_specific_step,u_specific_step(2,:));
         legend('U2'); 
-        title(['Torque of u2 at the specific step ' num2str(step_specific)]);
+        title('Torque of u2 at the specific step %d',step_specific);
      
 end

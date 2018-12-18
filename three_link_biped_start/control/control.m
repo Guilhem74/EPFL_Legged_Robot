@@ -1,4 +1,6 @@
 function u = control(t, q, dq, q0, dq0, step_number)
+%WARNING : Only q and dq are set in the analyse file, if you must use that
+%function please change the call in the analyze.m file
 u = zeros(2, 1);
 speed =1.45;
 step_angle = pi/22;
