@@ -64,7 +64,7 @@ function sln = analyse(sln)
                 dh_x_plot=[dh_x_plot dx_h];%%Instantaneous speed
                 time_sample=[time_sample T(j)];
                 step_counter=[step_counter i-1];
-                u = control(0, q_j', dq_j', 0, 0, j);%Only q and dq are used in the control function
+                u = control(0, q_j', dq_j', 0, 0, 0);%Only q and dq are used in the control function
                 if i==step_specific
                     
                     u1_specific_step=[u1_specific_step u(1)];
