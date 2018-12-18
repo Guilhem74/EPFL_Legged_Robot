@@ -108,11 +108,7 @@ function sln = analyse(sln)
         Step_Axis_Time_array=[Step_Axis_Time_array i];
         W1_array=[W1_array W1];
         W2_array=[W2_array W2];
-        if (W1+W2)/x_move>0
-            Energie_Array=[Energie_Array (W1+W2)/x_move];
-        else 
-            Energie_Array=[Energie_Array 0];
-        end
+        Energie_Array=[Energie_Array (W1+W2)/x_move]
         
     end
  %% plotting Speed
@@ -200,7 +196,7 @@ function sln = analyse(sln)
         plot( Step_Axis_Time_array,W2_array);
         plot( Step_Axis_Time_array,W1_array+W2_array);
         legend('W1','W2','W3'); 
-        title(['Work at each step ']);
+        title(['Work over s ']);
         subplot(1,2,2)
         hold on;
         plot( time_step_array,W1_array);
@@ -208,11 +204,11 @@ function sln = analyse(sln)
         plot( time_step_array,W1_array+W2_array);
         legend('W1','W2','W3'); 
         title(['Work over time ']);
-%% Plot Energie provided by the system at each step
+%% Plot Energie at each step
         figure(9);
         hold on;
         plot( Step_Axis_Time_array,Energie_Array);
-        legend('Energie consume by the robot at each step'); 
-        title(['Energie consume by the robot over step ']);
+        legend('Energie at each step'); 
+        title(['Energie over step ']);
         
 end
