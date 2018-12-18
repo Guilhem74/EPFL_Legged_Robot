@@ -5,13 +5,11 @@ u = zeros(2, 1);
 
 step_angle = pi/22;
 
-[speed,~,~]=control_hyper_parameters();
+[speed,tanh_c,Kp1_2]=control_hyper_parameters();
 Kp1=5500;
 Kd1=220;
 Kp2=1000;
 Kd2=6;
-Kp1_2=75;
-tanh_c=70;%50
 
 
 q1=q(1);

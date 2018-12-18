@@ -7,16 +7,15 @@ function animate(sln)
     figure();
     skip = 20;
     tic();
+    skip = 40;
     num_steps = length(sln.T);
     r0 = [0; 0];
     for j = 1:num_steps
         Y = sln.Y{j};
         [N, ~] = size(Y);
-        if j>33 && j<40
-            skip=2;
-        else
-             skip = 40;
-        end;
+    
+             
+       
         for i = 1:skip:N
             q = Y(i, 1:3);
             pause(0.002);
