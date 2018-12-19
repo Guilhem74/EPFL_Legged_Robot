@@ -1,12 +1,12 @@
 # Developing a Walking Controller for a Three-link 2D Biped
 <center> (Legged Robotics EPFL, Fall 2018)</center>
 
-To run the code open the main.m file.
+<p>To run the code open the main.m file.</p>
 
-$$Specifiy your speed in the variable desired_speed and run it.$$
+<p>Specifiy your speed in the variable desired_speed and run it.</p>
 
-$$You can change the speed of the animation in the file animate.m by changing the value skip.$$
+<p>You can change the speed of the animation in the file animate.m by changing the value skip.</p>
 
-$$You can change the perturbation in the file ext_perturbation_parameters.$$
+<p>You can change the perturbation in the file ext_perturbation_parameters.</p>
 
-$$You can change the number of steps in the main file too.$$
+<p>You can change the number of steps in the main file too.</p>
