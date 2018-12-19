@@ -1,6 +1,6 @@
 # Developing a Walking Controller for a Three-link 2D Biped
 <p> <center> (Legged Robots EPFL, Fall 2018)</center>  </p>
-
+<p> Modeling, simulating , and controlling a three link 2D Biped Robot using MATLAB.</p>
 ## Running the code
 * To run the code open the main.m file.</p>
 
