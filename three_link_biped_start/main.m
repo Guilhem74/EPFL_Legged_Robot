@@ -10,7 +10,7 @@ global desired_speed;
 desired_speed = 1.5; 
 setGlobalx(desired_speed);
 
-sln=solve_eqns([0;0;0],[0;0;0],150);
+sln=solve_eqns([0;0;0],[0;0;0],180);
 animate(sln);
 analyze(sln);
 
