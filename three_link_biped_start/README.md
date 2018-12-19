@@ -5,6 +5,8 @@
 ## Running the code
 * To run the code open the main.m file.</p>
 
+* Add every folder to your path.
+
 * Specifiy your speed in the variable desired_speed and run it.</p>
 
 ## Parameters of the simulation that can be changed
