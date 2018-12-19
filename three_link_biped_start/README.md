@@ -12,4 +12,4 @@
 
 <p>You can change the number of steps in the main file too.</p>
 
-<p> <center> (©) EPFL-Legged Robots-Group7-Fendri Hedi Guilhem Azzano Hédi Fendri </center> </p>
+<p> <center> (©) EPFL-Legged Robots-Group7-Fendri Hedi Guilhem Azzano Quentin Vingerhoets </center> </p>
