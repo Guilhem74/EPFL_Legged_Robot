@@ -3,13 +3,8 @@ function u = control(t, q, dq, q0, dq0, step_number)
 %function please change the call in the analyze.m file
 u = zeros(2, 1);
 
-step_angle = pi/22;
 
-[speed,tanh_c,Kp1_2]=control_hyper_parameters();
-Kp1=5500;
-Kd1=220;
-Kp2=1000;
-Kd2=6;
+[step_angle,Kp1,Kd1,Kp2,Kd2,tanh_c, Kp1_2,speed] = control_hyper_parameters();
 
 
 q1=q(1);

@@ -5,9 +5,8 @@
 %%
 function animate(sln)
     figure();
-    skip = 20;
+    skip = 80;
     tic();
-    skip = 40;
     num_steps = length(sln.T);
     r0 = [0; 0];
     for j = 1:num_steps

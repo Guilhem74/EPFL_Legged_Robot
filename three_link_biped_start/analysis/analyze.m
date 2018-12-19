@@ -3,27 +3,7 @@ function sln = analyse(sln)
     Y = sln.Y{1};
     T = sln.T{1};
     [N, ~] = size(Y);
-    t=T(:,1);
-      q = Y(:, 1:3);
-      q1=q(:,1);
-    q2=q(:,2);
-    q3=q(:,3);
-    dq = Y(:, 4:6);
-    dq1=q(:,1);
-    dq2=q(:,2);
-    dq3=q(:,3);
-    
-    %figure(2);
-    %hold on
-    %plot(t,q1)
-    % figure(3);
-    % plot((q1*1000)/(pi/2)*pi/4,'b')
-    %%figure()
-    %%plot(q1) 
-    %%hold on 
-    %%plot(q2)
-    %%hold on 
-    %%Plotting the different speed vs time
+
     speed_array=0;
     dh_x_array=0;
     u1_array=0;
