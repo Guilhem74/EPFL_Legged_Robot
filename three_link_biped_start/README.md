@@ -1,5 +1,6 @@
 # Developing a Walking Controller for a Three-link 2D Biped
-<center> (Legged Robotics EPFL, Fall 2018)</center>
+<center> (Legged Robotics EPFL, Fall 2018)</center> 
+<center> (©) EPFL-Legged Robots-Fendri Hedi Guilhem Azzano Hédi Fendri </center> 
 
 <p>To run the code open the main.m file.</p>
 
