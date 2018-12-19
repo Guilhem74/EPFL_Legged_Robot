@@ -125,7 +125,27 @@ ylabel('Torque in N.m');
 xlabel('Time in s')
 legend(' U2','Steps Vertical Line');
 title('Torque of u2');
-%%Plot Displacement at each step
+%% Plotting Angle vs time
+figure(5);
+subplot(1,3,1)
+hold on;
+plot(time_sample_array,q1_array);
+ylabel('q1 in rad');
+xlabel('Time in s')
+title('Angle q1 against time');
+subplot(1,3,2)
+hold on;
+plot(time_sample_array,q2_array);
+ylabel('q2 in rad');
+xlabel('Time in s')
+title('Angle q2 against time');
+subplot(1,3,3)
+hold on;
+plot(time_sample_array,q3_array);
+ylabel('q3 in rad');
+xlabel('Time in s')
+title('Angle q3 against time');
+%% Plot Displacement at each step
 figure(6);
 subplot(1,2,1);
 hold on;
