@@ -2,9 +2,9 @@
 <p> <center> (Legged Robots EPFL, Fall 2018)</center>  </p>
 
 ## Running the code
-<p>To run the code open the main.m file.</p>
+* To run the code open the main.m file.</p>
 
-<p>Specifiy your speed in the variable desired_speed and run it.</p>
+* Specifiy your speed in the variable desired_speed and run it.</p>
 
 ## Parameters of the simulation that can be changed
 * You can change the speed of the animation in the file animate.m by changing the value skip.</p>
