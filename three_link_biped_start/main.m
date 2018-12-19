@@ -7,7 +7,7 @@ global desired_speed;
 % If not one of the above value the speed is 1.5 by default.
 % Perturbation is at the step 150 to be sure that the robot is in steady
 % state
-desired_speed = 0.7; 
+desired_speed = 1.5; 
 setGlobalx(desired_speed);
 
 sln=solve_eqns([0;0;0],[0;0;0],200);
