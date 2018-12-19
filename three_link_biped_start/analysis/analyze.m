@@ -22,10 +22,6 @@ q3_array=0;
 dq1_array=0;
 dq2_array=0;
 dq3_array=0;
-%%To analyse a specific step
-u1_specific_step=0;
-u2_specific_step=0;
-step_specific=41;%SETUP HERE
 time_sample_specific_step=0;
 %%
 
@@ -63,11 +59,6 @@ for i=1:size(sln.Y,2)
         time_sample_array=[time_sample_array T(j)];
         step_counter_array=[step_counter_array i-1];
         u = control(0, q_j', dq_j', 0, 0, 0);%Only q and dq are used in the control function
-        if i==step_specific
-            u1_specific_step=[u1_specific_step u(1)];
-            u2_specific_step=[u2_specific_step u(2)];
-            time_sample_specific_step=[time_sample_specific_step T(j)];
-        end
         del_th1 = dq_j(1) - dq_j(3);
         del_th2 = dq_j(2) - dq_j(3);
         del_W1 = u(1)*del_th1; % virtual work done by u1
@@ -109,39 +100,22 @@ title('Speed and intstantaneous speed');
 figure(4);
 subplot(1,2,1)
 hold on;
-yyaxis left
 plot(time_sample_array,u1_array);
 for i=1:size(time_step_array,2)
-    line([time_step_array(i) time_step_array(i)], [-30 30],'Color','red','LineStyle','--'); %Showing the steps
+    line([time_step_array(i) time_step_array(i)], [-30 30],'Color','red','LineStyle','--'); %Showing where are the steps
 end;
 axis([0 max(time_sample_array) -40 40 ]);
-plot(time_sample_array,step_counter_array);
 legend(' U1','Steps Vertical Line');
 title('Torque of u1' );
 subplot(1,2,2)
 hold on;
-yyaxis left
 plot(time_sample_array,u2_array);
 for i=1:size(time_step_array,2)
-    line([time_step_array(i) time_step_array(i)], [-30 30],'Color','red','LineStyle','--'); %Showing the steps
+    line([time_step_array(i) time_step_array(i)], [-30 30],'Color','red','LineStyle','--'); %Showing where are the steps
 end;
-
 axis([0 max(time_sample_array) -40 40 ]);
-plot(time_sample_array,step_counter_array);
 legend(' U2','Steps Vertical Line');
 title('Torque of u2');
-%%¨Plot torque at the specific step
-figure(5);
-subplot(1,2,1)
-hold on;
-plot( time_sample_specific_step,u1_specific_step);
-legend(' U1');
-title(['Torque of u1 at the specific step ',num2str(step_specific)]);
-subplot(1,2,2)
-hold on;
-plot( time_sample_specific_step,u2_specific_step);
-legend('U2');
-title(['Torque of u2 at the specific step ' num2str(step_specific)]);
 %%Plot Displacement at each step
 figure(6);
 subplot(1,2,1);
@@ -194,8 +168,5 @@ plot( Step_Axis_Time_array,Energie_Array);
 legend('Energie consume by the robot at each step');
 title(['Energie consume by the robot against step ']);
 
-figure(10);
-hold on;
-plot( time_sample_array,q1_array);
 
 end
