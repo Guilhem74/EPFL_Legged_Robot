@@ -92,10 +92,14 @@ figure(3);
 hold on;
 yyaxis left
 plot(time_sample_array,dh_x_array,time_step_array,speed_array,'b-*');
+ylabel("Speed [m/s]")
 yyaxis right;
 plot(time_sample_array,step_counter_array);
 legend(' Instantaneous speed','Speed of the robot at every step','Step Counter');
 title('Speed and intstantaneous speed');
+xlabel("Time[s]")
+ylabel("Number of steps")
+axis([0 max(time_sample_array) 0 150 ]);
 %% Plotting u1 and u2 the two controller versus time
 figure(4);
 subplot(1,2,1)
@@ -106,7 +110,10 @@ for i=1:size(time_step_array,2)
 end;
 axis([0 max(time_sample_array) -40 40 ]);
 legend(' U1','Steps Vertical Line');
-title('Torque of u1' );
+xlabel('Time[s]');
+ylabel('Torque [Nm]');
+legend(' U2','Steps Vertical Line');
+title('Torque of u2');
 subplot(1,2,2)
 hold on;
 plot(time_sample_array,u2_array);
@@ -114,6 +121,8 @@ for i=1:size(time_step_array,2)
     line([time_step_array(i) time_step_array(i)], [-30 30],'Color','red','LineStyle','--'); %Showing where are the steps
 end;
 axis([0 max(time_sample_array) -40 40 ]);
+ylabel('Torque in N.m');
+xlabel('Time in s')
 legend(' U2','Steps Vertical Line');
 title('Torque of u2');
 %%Plot Displacement at each step
@@ -122,29 +131,37 @@ subplot(1,2,1);
 hold on;
 plot( Step_Axis_Time_array,displacement_array);
 legend(' Displacement for every step');
+xlabel("Step Number");
+ylabel("Displacement [m]");
 title(['Displacement of the hip at each step ']);
 subplot(1,2,2);
 hold on;
 plot( time_step_array,displacement_array);
+xlabel("Time [s]");
+ylabel("Displacement [m]");
 legend(' Displacement for every step against time');
-title(['Displacement of the hip against time']);
+title(['Displacement of the hip over time']);
 %%Plot q and dq
 figure(7);
 subplot(1,3,1);
 hold on;
 plot( dq1_array,q1_array);
-legend(' dq1 against q1');
-title(['dq1 against q1 ']);
+title(['qdot1 over q1 ']);
+xlabel("q1 [rad]");
+ylabel("q1dot [rad/s]");
 subplot(1,3,2);
 hold on;
 plot( dq2_array,q2_array);
-legend(' dq2 against q2');
-title(['dq2 against q2']);
+title(['qdot2 against q2']);
+xlabel("q2 [rad]");
+ylabel("q2dot [rad/s]");
 subplot(1,3,3);
 hold on;
 plot( dq3_array,q3_array);
-legend(' dq3 against q3');
-title(['dq3 against q3']);
+xlabel("q3 [rad]");
+ylabel("q3dot [rad/s]");
+
+title(['qdot3 agaianst q3']);
 %% Plot Work W
 figure(8);
 subplot(1,2,1)
@@ -152,21 +169,25 @@ hold on;
 plot( Step_Axis_Time_array,W1_array);
 plot( Step_Axis_Time_array,W2_array);
 plot( Step_Axis_Time_array,W1_array+W2_array);
-legend('W1','W2','W3');
+xlabel("step Number");
+ylabel("Work[J]")
+legend('W1(torso)','W2(swing leg)','W1+W2');
 title(['Work at each step ']);
 subplot(1,2,2)
 hold on;
 plot( time_step_array,W1_array);
 plot( time_step_array,W2_array);
 plot( time_step_array,W1_array+W2_array);
-legend('W1','W2','W3');
-title(['Work against time ']);
+xlabel("Time [s]");
+ylabel("Work[J]")
+legend('W1(torso)','W2(swing leg)','W1+W2');
 %% Plot Energie provided by the system at each step
 figure(9);
 hold on;
 plot( Step_Axis_Time_array,Energie_Array);
-legend('Energie consume by the robot at each step');
-title(['Energie consume by the robot against step ']);
-
+str= "Cost of transport at the speed required [m/s]";
+title(str);
+ylabel("Cost of transport [J/m]")
+xlabel("Step number")
 
 end
