@@ -5,7 +5,7 @@ To run the code open the main.m file
 
 Specifiy your speed in the variable desired_speed and run it.
 
-You can change the speed of the simulation in the file animate.m by changing the value skip
+You can change the speed of the animation in the file animate.m by changing the value skip
 
 You can change the perturbation in the file ext_perturbation_parameters
 
