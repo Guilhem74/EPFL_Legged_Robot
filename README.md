@@ -18,6 +18,8 @@
 
 * You can change parameters as weight or length of each segments in set_parameters.m
 
+## Output
+* Torque analysis, angle and speed of each segment overtime, work at each step,cost of transport are available at the end of the simulation.
 ## Authors
 <p> <center> (©) EPFL-Legged Robots-Group7-Fendri Hedi Guilhem Azzano Quentin Vingerhoets </center> </p>
 
