@@ -16,5 +16,10 @@
 
 * You can change the number of steps in the main file too.</p>
 
+* You can change parameters as weight or length of each segments in set_parameters.m
+
 ## Authors
 <p> <center> (©) EPFL-Legged Robots-Group7-Fendri Hedi Guilhem Azzano Quentin Vingerhoets </center> </p>
+
+
+![alt text](https://github.com/Guilhem74/Legged_Robot/blob/Assignement4/Result.jpg?raw=true)
